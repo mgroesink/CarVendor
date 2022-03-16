@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CarVendor.Models.Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Overzicht auto's</h1>
+
+<p>
+    <a asp-action="Create">Nieuwe toevoegen</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LicensePlate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+
+@*            <th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicensePlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+@*                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.LicensePlate }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.LicensePlate  }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.LicensePlate  })
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
