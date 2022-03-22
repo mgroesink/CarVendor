@@ -22,6 +22,7 @@ namespace CarVendor.Models
         /// The name.
         /// </value>
         [Display(Name = "Naam")]
+        [MaxLength(100, ErrorMessage = "{0} mag maximaal {1} tekens zijn.")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -31,6 +32,8 @@ namespace CarVendor.Models
         /// The address.
         /// </value>
         [Display(Name = "Adres")]
+        [MaxLength(75, ErrorMessage = "{0} mag maximaal {1} tekens zijn.")]
+
         public string Address { get; set; } = string.Empty;
 
         /// <summary>
@@ -40,6 +43,8 @@ namespace CarVendor.Models
         /// The city.
         /// </value>
         [Display(Name = "Woonplaats")]
+        [MaxLength(50, ErrorMessage = "{0} mag maximaal {1} tekens zijn.")]
+
         public string City { get; set; } = string.Empty;
 
         /// <summary>
@@ -56,7 +61,9 @@ namespace CarVendor.Models
         [Display(Name = "Postcode"),PostalCode]
         public string PostalCode { get => _postalCode ?? ""; set => _postalCode = value.ToUpper(); }
 
-        public ICollection<Car> Cars { get; set; }
+        #region Navigation Properties
+        public ICollection<Car> Cars { get; set; } = new List<Car>();
+        #endregion
         #endregion Fields and properties
 
     }
