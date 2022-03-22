@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarVendor.Models
 {
@@ -36,6 +37,13 @@ namespace CarVendor.Models
         [MaxLength(50, ErrorMessage = "{0} mag maximaal {1} tekens bevatten")]
         public string Model { get; set; } = string.Empty;
 
+        [ForeignKey("CustomerId")]
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+
         #endregion Fields and properties
+
+
+
     }
 }

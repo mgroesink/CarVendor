@@ -56,6 +56,7 @@ namespace CarVendor.Models
         [Display(Name = "Postcode"),PostalCode]
         public string PostalCode { get => _postalCode ?? ""; set => _postalCode = value.ToUpper(); }
 
+        public ICollection<Car> Cars { get; set; }
         #endregion Fields and properties
 
     }
